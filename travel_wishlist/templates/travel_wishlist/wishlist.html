@@ -19,7 +19,7 @@
 
         <form class="visited-form" method="POST" action="{% url 'place_was_visited' place.pk %}">
             {% csrf_token %}
-        <button>Visited!</button>
+        <button id="visited-button" type="submit">Visited!</button>
         </form>
 
     </div>

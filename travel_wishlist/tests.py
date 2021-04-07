@@ -9,7 +9,7 @@ from django.test import override_settings
 from django.contrib.auth.models import User
 from .models import Place
 
-# from PIL import Image
+from PIL import Image
 
 
 class TestViewHomePageIsEmptyList(TestCase):
