@@ -1,5 +1,12 @@
 /* Base styles */
 
+#site-header {
+  background: url('../img/dcuevas.jpg') 0 0 repeat-x;
+  color: darkblue;
+  padding: 40px 0 40px 0px;
+  text-align: center;
+}
+
 .nav-link {
   margin-right: 10px;
 }
