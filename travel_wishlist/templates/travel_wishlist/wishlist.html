@@ -1,3 +1,6 @@
+{% extends 'travel_wishlist/base.html' %}
+{% block content %}
+
 <h2>Travel Wishlist</h2>
 
 <form method="POST" action="{% url 'place_list' %}">
@@ -8,14 +11,16 @@
 
 {% for place in places %}
 
-<div>
-    {{ place.name }}
-    <form class="visited-form" method="POST" action="{% url 'place_was_visited' place.pk %}">
+<div class="wishlist-place">
+
+        <span class="place-name">{{ place.name }}</span>
+
+        <form class="visited-form" method="POST" action="{% url 'place_was_visited' place.pk %}">
             {% csrf_token %}
         <button>Visited!</button>
-    </form>
+        </form>
 
-</div>
+    </div>
 
 {% empty %}
 
@@ -23,4 +28,4 @@
 
 {% endfor %}
 
-<a href="{% url 'places_visited'  %}">Places you've visited</a>
+{% endblock %}
