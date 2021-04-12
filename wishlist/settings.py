@@ -24,9 +24,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'o2*w%^x#(+p@gm5zhy_&ytin(7wru()(y+1t10&%t#qz$k&4_g'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+if os.getenv('GAE_INSTANCE'):
+    DEBUG = False
+else:
+    DEBUG = True
 
-ALLOWED_HOSTS = []
+
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -77,11 +81,18 @@ WSGI_APPLICATION = 'wishlist.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'places',
+        'USER': 'traveler',
+        'PASSWORD': os.getenv('TRAVELER_PW'),
+        'HOST': 'cloudsql/wishlist-django-310504:us-central1:wishlist-db',
+        'PORT': '5432'
+
     }
 }
 
+if not os.getenv('GAE_INSTANCE'):
+    DATABASES['default']['HOST'] = '127.0.0.1'
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -118,6 +129,8 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'www', 'static')
 
 STATIC_URL = '/static/'
 
