@@ -24,10 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'o2*w%^x#(+p@gm5zhy_&ytin(7wru()(y+1t10&%t#qz$k&4_g'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-if os.getenv('GAE_INSTANCE'):
-    DEBUG = False
-else:
-    DEBUG = True
+DEBUG = False
 
 
 ALLOWED_HOSTS = ['*']
@@ -85,7 +82,7 @@ DATABASES = {
         'NAME': 'places',
         'USER': 'traveler',
         'PASSWORD': os.getenv('TRAVELER_PW'),
-        'HOST': 'cloudsql/wishlist-django-310504:us-central1:wishlist-db',
+        'HOST': '/cloudsql/wishlist-django-310504:us-central1:wishlist-db',
         'PORT': '5432'
 
     }

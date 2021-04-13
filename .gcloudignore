@@ -19,6 +19,6 @@ __pycache__/
 /setup.cfg
 
 db.sqlite3
-../cloud_sql_proxy.exe
+cloud_sql_proxy.exe
 .idea
 env

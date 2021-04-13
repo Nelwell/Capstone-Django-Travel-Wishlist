@@ -12,4 +12,4 @@ env_variables:
   TRAVELER_PW: Porknuggets123
 
 beta_settings:
-  cloud_sql_instance: wishlist-258923:us-central1:wishlist-db
+  cloud_sql_instance: wishlist-django-310504:us-central1:wishlist-db
