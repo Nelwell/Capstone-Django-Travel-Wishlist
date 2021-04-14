@@ -9,7 +9,7 @@ handlers:
   script: auto
 
 env_variables:
-  TRAVELER_PW: Porknuggets123
+  TRAVELER_PW: Sweetchickens925!
 
 beta_settings:
   cloud_sql_instance: wishlist-django-310504:us-central1:wishlist-db
