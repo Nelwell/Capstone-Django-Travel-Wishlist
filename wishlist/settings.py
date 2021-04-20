@@ -146,8 +146,10 @@ if os.getenv('GAE_INSTANCE'):
 
     DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
 
-    GS_CREDENTIALS = service_account.Credentials.from_service_account_file('travel_credentials.json')
+    GS_CREDENTIALS = service_account.Credentials.from_service_account_file('traveler_credentials.json')
 
 else:
     STATIC_URL = '/static/'
     MEDIA_URL = '/media/'  # url where to save media files such as images, pdfs, word docs, etc.
+
+LOGIN_URL = '/admin/'
